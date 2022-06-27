@@ -1,6 +1,6 @@
 
 #[allow(dead_code)]
-mod parser {
+pub mod parser {
     use pcap::{Capture, Offline, Packet};
 
     const IPV4_MAGIC_NUMBER: u16 = 0x0800;
