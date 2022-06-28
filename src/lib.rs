@@ -1,3 +1,36 @@
+/// Example for reading a file:
+/// ```rust
+/// pub fn read_packet(packet: Packet) -> Result<&[u8], ParserError> {
+/// if !is_ipv4_packet(packet.clone()) {
+///     return Err(NotIPv4Packet);
+/// }
+/// if !is_udp_packet(packet.clone()) {
+///     return Err(NotUdpPacket);
+/// }
+/// return Ok(get_payload(packet));
+/// }
+/// ```
+///
+/// ```rust
+/// fn read_next(cap: &mut Capture<Offline>) -> Result<&[u8], ParserError> {
+///     match cap.next() {
+///         Ok(p) => {
+///             return match read_packet(p) {
+///                 Ok(d) => Ok(d),
+///                 Err(e) => Err(e)
+///             }
+///         }
+///         Err(e) => {
+///             if e == NoMorePackets {
+///                 return Err(EndOfFile);
+///             }
+///             return Err(UnknownError(e.to_string()));
+///         }
+///     }
+/// }
+/// ```
+/// 
+/// 
 
 #[allow(dead_code)]
 pub mod parser {
