@@ -1,13 +1,14 @@
 /// Example for reading a file:
 /// ```rust
 /// pub fn read_packet(packet: Packet) -> Result<&[u8], ParserError> {
-/// if !is_ipv4_packet(packet.clone()) {
-///     return Err(NotIPv4Packet);
-/// }
-/// if !is_udp_packet(packet.clone()) {
-///     return Err(NotUdpPacket);
-/// }
-/// return Ok(get_payload(packet));
+///     if !is_ipv4_packet(packet.clone()) {
+///         return Err(NotIPv4Packet);
+///     }
+///     if !is_udp_packet(packet.clone()) {
+///         return Err(NotUdpPacket);
+///     }
+/// 
+///     return Ok(get_payload(packet));
 /// }
 /// ```
 ///
